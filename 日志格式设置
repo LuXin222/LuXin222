@@ -1,0 +1,6 @@
+import os
+
+PATH = os.path.dirname(os.path.abspath(__file__))#这行代码的作用是获取当前文件所在的目录路径。
+DATE_FORMAT = "%Y-%m-%d"
+TIME_FORMAT = "%H:%M:%S"
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"#（年月日时分秒）

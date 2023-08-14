@@ -1,0 +1,82 @@
+OPENCV
+import matplotlib.pyplot as plt # plt 用于显示图片
+import cv2
+
+#opencv的颜色通道顺序为[B,G,R]，而matplotlib颜色通道顺序为[R,G,B],所以需要调换一下通道位置
+img1 = cv2.imread('./Lena.png')[:,:,(2,1,0)] # 读取和代码处于同一目录下的 lena.png
+img2 = cv2.imread('./Lena.png')[:,:,(2,1,0)]
+
+#结果展示
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文乱码
+plt.subplot(121)
+#imshow()对图像进行处理，画出图像，show()进行图像显示
+plt.imshow(img1)
+
+plt.title('图像1')
+#不显示坐标轴
+plt.axis('off')
+
+#子图2
+plt.subplot(122)
+plt.imshow(img2)
+plt.title('图像2')
+plt.axis('off')
+
+# #设置子图默认的间距
+plt.tight_layout()
+#显示图像
+plt.show()
+######################################################################
+MATPLOTLIB
+import matplotlib.pyplot as plt # plt 用于显示图片
+import matplotlib.image as mpimg # mpimg 用于读取图片
+
+img1 = mpimg.imread('./Lena.png') # 读取和代码处于同一目录下的 lena.png
+img2=mpimg.imread('./Lena.png')
+
+#结果展示
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文乱码
+plt.subplot(121)
+#imshow()对图像进行处理，画出图像，show()进行图像显示
+plt.imshow(img1)
+
+plt.title('图像1')
+#不显示坐标轴
+plt.axis('off')
+
+#子图2
+plt.subplot(122)
+plt.imshow(img2)
+plt.title('图像2')
+plt.axis('off')
+
+# #设置子图默认的间距
+plt.tight_layout()
+#显示图像
+plt.show()
+##############################################################
+PIL
+import matplotlib.pyplot as plt # plt 用于显示图片
+from PIL import Image
+
+img1 = Image.open('./Lena.png')
+img2 = Image.open('./Lena.png')
+
+#结果展示
+plt.rcParams['font.sans-serif'] = ['SimHei']  # 中文乱码
+plt.subplot(121)
+plt.imshow(img1)
+plt.title('图像1')
+#不显示坐标轴
+plt.axis('off')
+
+#子图2
+plt.subplot(122)
+plt.imshow(img2)
+plt.title('图像2')
+plt.axis('off')
+
+# #设置子图默认的间距
+plt.tight_layout()
+#显示图像
+plt.show()

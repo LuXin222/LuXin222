@@ -1,0 +1,23 @@
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
+import os
+output_folder = '/home/luxin/Users/xin/pdf/'
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+# 创建一个图表
+plt.figure()
+
+# 在图表上绘制内容
+plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'b-')
+
+# 创建PdfPages对象
+pdf = PdfPages("/home/luxin/Users/xin/pdf/angle.pdf")
+
+# 保存图表到PDF
+pdf.savefig()
+
+# 关闭PdfPages对象
+pdf.close()
+
+# 显示图表（可选）
+plt.show()

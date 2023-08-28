@@ -1,0 +1,7 @@
+class CattleDataset(Dataset):
+    # grid_number = project_config_ori_bb1.get_training_grid_number()  # 7
+    def __init__(self):
+        self.image_size = project_config_ori_bb1.get_training_image_size()  # 448
+        print(self.image_size)
+
+a = CattleDataset()******注意使用括号**************

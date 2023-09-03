@@ -1,0 +1,28 @@
+config_file(路径)
+#加载模型，这个模型需要在mmdetection的model ZOO下载，他提供基于亚马逊和阿里云的服务器下载
+
+checkpoint_file 是指向预训练模型检查点文件的路径，你可以使用它来初始化模型并使用预训练的权重。
+
+tool文件夹是主要文件夹，包含着训练，测试，获取Floaps，绘制loss曲线，保存分析日志结果等功能文件，以及启动脚本。
+
+ 2.2 train.py
+训练文件主要包括两个函数，
+parse_args(),main(),第一个函数主要是用来接收输入参数，第二个主要是训练模型。
+
+使用 print_config.py指令
+python print_config.py /home/luxin/pyc/LSKNet-main/tools/train.py
+
+test 命令
+python tools/test.py /path/to/your/config_file.yaml /path/to/your/checkpoint.pth --batch-size 32 --output-dir /path/to/output
+
+train 命令
+python tools/train.py /path/to/your/config_file.yaml --lr 0.001 --batch-size 32 --log-dir /path/to/logs
+
+
+from mmdet.apis import init_detector, inference_detector
+import mmrotate
+##################################################包含checkpoint——file
+config_file = 'oriented_rcnn_r50_fpn_1x_dota_le90.py'
+checkpoint_file = 'oriented_rcnn_r50_fpn_1x_dota_le90-6d2b2ce0.pth'
+model = init_detector(config_file, checkpoint_file, device='cuda:0')
+inference_detector(model, 'demo/demo.jpg')

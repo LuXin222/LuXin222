@@ -1,0 +1,19 @@
+1：是更改数据集训练，测试，评估的地址（注意前面加/，不然容易找不到数据集报错：ValueError: need at least one array to concatenate）：
+data = dict(
+    samples_per_gpu=2,
+    workers_per_gpu=4,
+    train=dict(
+        type=dataset_type,
+        ann_file=data_root + '/trainval/annfiles/',
+        img_prefix=data_root + '/trainval/images/',
+        pipeline=train_pipeline),
+    val=dict(
+        type=dataset_type,
+        ann_file=data_root + '/val/annfiles/',
+        img_prefix=data_root + '/val/images/',
+        pipeline=test_pipeline),
+    test=dict(
+        type=dataset_type,
+        ann_file=data_root + '/test/images/',
+        img_prefix=data_root + '/test/images/',
+        pipeline=test_pipeline))

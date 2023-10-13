@@ -1,0 +1,5 @@
+RuntimeError: each element in list of batch should be of equal size
+每取出一批数据，就返回一个list，该list中有若干的list，每个list的长度都是batchsize，一开始提到的错误就是若干个list中，存在list中元素大小不相等的情况
+博主给出
+https://blog.csdn.net/qq_41340996/article/details/123156330
+直接把batch-size改为1

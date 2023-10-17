@@ -1,0 +1,20 @@
+mmdetection 安装后，根据官方给的程序安装mmcv时，出现：Building wheel for mmcv-full (setup.py) … error
+
+环境：CUDA11.3, Pytorch1.11
+安装根据官网给的安装程序：pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.11.0/index.html安装时，无论是指定或者不指定版本，安装时都会出现Building wheel for mmcv-full (setup.py)的报错。
+
+尝试了各种办法，最后以下方法解决：
+pip install -U openmim
+mim install mmcv-full
+安装最新版本，这时会提示你现在安装的mmdetection和安装的mmcv不符，而且会给出符合你的mmdetection版本的mmcv版本的范围。我安装的mmdetection版本是2.25.0，提示符合的mmcv版本是1.4.4以上，1.6.0以下。
+
+因此，我把原来的mmcv-full卸载：
+pip uninstall mmcv-full
+
+在安装一个在范围以内的版本：
+mim install mmcv-full == 1.5.1
+
+提示安装成功，根据官方测试程序进行测试，没有报错！！！
+————————————————
+版权声明：本文为CSDN博主「A  little point」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_46412818/article/details/126006081

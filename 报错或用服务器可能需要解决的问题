@@ -2,3 +2,17 @@
 注意根目录是/home/jovyan/开头
 出现emputy（）的错误时不是库的问题而是数据没有加载完毕或者数据不全
 出现whell错误可能是torch版本过高不与要安装的库适配
+3.在输入“vim 文件名.py”打开需要编辑的Python文件，按下电脑“I”键进入“Insert”模式便可编辑。
+1. 打开终端，输入命令“nano 文件名.py”，其中“文件名”是你想要保存的文件名。
+
+2. 输入代码。
+
+3. 按下“Ctrl + X”键，然后输入“Y”保存文件。
+
+mmcv出现cannot import XXX in mmcv __init__.py
+Find the directory of mmcv in your environment directory
+在您的环境目录中找到mmcv的目录
+Get into the mmcv/ops/ directory进入mmcv/ops/目录
+Replace the following files: 替换以下文件： deform_conv.py, modulated_deform_conv.py调制变形转换
+Register the 'DeformConvG','ModulatedDeformConvG' classes into the init.py
+将“DeformConvG”、“ModulatedDeformConvG”类注册到init.py

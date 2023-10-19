@@ -14,6 +14,7 @@ pip uninstall mmcv-full
 在安装一个在范围以内的版本：
 mim install mmcv-full == 1.5.1
 
+ pip install mmcv-full=={mmcv_version} -f https://download.openmmlab.com/mmcv/dist/cu101/torch1.7.0/index.html
 
 2:mmcv出现cannot import XXX in mmcv __init__.py
 Find the directory of mmcv in your environment directory

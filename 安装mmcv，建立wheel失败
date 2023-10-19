@@ -14,7 +14,11 @@ pip uninstall mmcv-full
 在安装一个在范围以内的版本：
 mim install mmcv-full == 1.5.1
 
-提示安装成功，根据官方测试程序进行测试，没有报错！！！
-————————————————
-版权声明：本文为CSDN博主「A  little point」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/weixin_46412818/article/details/126006081
+
+2:mmcv出现cannot import XXX in mmcv __init__.py
+Find the directory of mmcv in your environment directory
+在您的环境目录中找到mmcv的目录
+Get into the mmcv/ops/ directory进入mmcv/ops/目录
+Replace the following files: 替换以下文件： deform_conv.py, modulated_deform_conv.py调制变形转换
+Register the 'DeformConvG','ModulatedDeformConvG' classes into the init.py
+将“DeformConvG”、“ModulatedDeformConvG”类注册到init.py

@@ -19,3 +19,5 @@ PlotNeuralNet教程（以test_simple为例子）
 bash ../tikzmake.sh test_simple
 
 可生成pdf网络结构文件
+各种结构绘图讲解
+https://blog.csdn.net/Zhanglw882/article/details/115537471

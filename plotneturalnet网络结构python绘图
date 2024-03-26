@@ -1,0 +1,21 @@
+首先，安装必要库
+
+sudo apt update
+sudo apt install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+
+2：安装Git
+
+sudo apt install git
+
+3：PlotNeuralNet
+
+git clone https://github.com/HarisIqbal88/PlotNeuralNet.git
+PlotNeuralNet教程（以test_simple为例子）
+
+1.进入PlotNeuralNet-master\pyexamples目录下
+2.右键点击git bash here(记得先安装)
+3.执行命令（这里的命令不能带.py,不然会报错，因为这里运行的是.tex文件）
+
+bash ../tikzmake.sh test_simple
+
+可生成pdf网络结构文件

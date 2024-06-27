@@ -1,0 +1,9 @@
+在安装CUDA11.0之前需要首先安装一些相互依赖的库文件：
+sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev
+
+下面为安装CUDA11.0.2的Ubuntu安装指令：
+
+wget https://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda_11.0.2_450.51.05_linux.run
+sudo sh cuda_11.0.2_450.51.05_linux.run
+
+https://blog.csdn.net/weixin_37926734/article/details/123033286

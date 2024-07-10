@@ -27,12 +27,12 @@ nano proxychain.conf 改自己的ip保存即可联网
   proxychains apt-get update
   proxychains apt-get upgrade
   proxychains apt-get install build-essential
-安装cuda 11.1需要进入官网（中台已有安装包，可直接执行sh  cuda_11.1.0_455.23.05_linux.run）
+安装cuda 11.0需要进入官网（中台已有安装包，可直接执行sh  cuda_11.0.2_450.51.05_linux.run）
   https://blog.csdn.net/weixin_37926734/article/details/123033286
   下载
-  proxychains wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run
+  wget https://developer.download.nvidia.com/compute/cuda/11.0.2/local_installers/cuda_11.0.2_450.51.05_linux.run
   安装
-  sh  cuda_11.1.0_455.23.05_linux.run
+  sh  cuda_11.0.2_450.51.05_linux.run
   取消勾选安装驱动之后加上路径
   nano ~/.bashrc
   export PATH=$PATH:/usr/local/cuda/bin  
@@ -45,12 +45,12 @@ nano proxychain.conf 改自己的ip保存即可联网
   官网下载8.8.0（中台已有压缩包）
   解压缩
   tar -xf cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz
-  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/lib/* /usr/local/cuda-11.2/lib64/
-  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/include/* /usr/local/cuda-11.2/include/
+  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/lib/* /usr/local/cuda-11.0/lib64/
+  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/include/* /usr/local/cuda-11.0/include/
 查看cudnn信息
-  cat /usr/local/cuda-11.2/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
-安装PaddlePaddle(2.6.0)
-  proxychains python -m pip install paddlepaddle-gpu==2.6.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+  cat /usr/local/cuda-11.0/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+安装PaddlePaddle
+  proxychains python3 -m pip install paddlepaddle-gpu==2.6.1.post112 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
 安装依赖
   proxychains  pip install -r requirements.txt
 定义外部算子

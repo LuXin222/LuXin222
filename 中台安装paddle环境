@@ -27,12 +27,12 @@ nano proxychain.conf 改自己的ip保存即可联网
   proxychains apt-get update
   proxychains apt-get upgrade
   proxychains apt-get install build-essential
-安装cuda 11.2需要进入官网（中台已有安装包，可直接执行cuda_11.2.0_460.27.04_linux.run）
+安装cuda 11.1需要进入官网（中台已有安装包，可直接执行sh  cuda_11.1.0_455.23.05_linux.run）
   https://blog.csdn.net/weixin_37926734/article/details/123033286
   下载
-  proxychains wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda_11.2.0_460.27.04_linux.run
+  proxychains wget https://developer.download.nvidia.com/compute/cuda/11.1.0/local_installers/cuda_11.1.0_455.23.05_linux.run
   安装
-  sh cuda_11.2.0_460.27.04_linux.run
+  sh  cuda_11.1.0_455.23.05_linux.run
   取消勾选安装驱动之后加上路径
   nano ~/.bashrc
   export PATH=$PATH:/usr/local/cuda/bin  

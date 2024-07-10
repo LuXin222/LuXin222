@@ -1,0 +1,62 @@
+以lfy：duad环境新创建的笔记本
+使中台可上网
+cd //
+cd etc
+nano proxychain.conf 改自己的ip保存即可联网
+安装gcc，g++
+  换源nano /etc/apt/sources.list
+  # 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+  deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+  
+  # 预发布软件源，不建议启用
+  # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+  # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+  改apt代理
+  sudo vi /etc/apt/apt.conf.d/proxy.conf
+  添加
+  Acquire::http::Proxy "http://192.168.56.102:3128/";
+  Acquire::https::Proxy "http://192.168.56.102:3128/";
+  执行
+  proxychains apt-get update
+  proxychains apt-get upgrade
+  proxychains apt-get install build-essential
+安装cuda 11.2需要进入官网（中台已有安装包，可直接执行cuda_11.2.0_460.27.04_linux.run）
+  https://blog.csdn.net/weixin_37926734/article/details/123033286
+  下载
+  proxychains wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda_11.2.0_460.27.04_linux.run
+  安装
+  sh cuda_11.2.0_460.27.04_linux.run
+  取消勾选安装驱动之后加上路径
+  nano ~/.bashrc
+  export PATH=$PATH:/usr/local/cuda/bin  
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64  
+  export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda/lib64
+  nvcc -V查看是否成功安装
+  Ubuntu20.04系统会默认地将CUDA的NVIDIA GPU计算工具包安装到/usr/local/文件夹下面，可以看到该文件夹下多了两个文件夹cuda和cuda-11.0。
+安装cudnn 
+  https://developer.nvidia.com/rdp/cudnn-archive
+  官网下载8.8.0（中台已有压缩包）
+  解压缩
+  tar -xf cudnn-linux-x86_64-8.8.0.121_cuda11-archive.tar.xz
+  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/lib/* /usr/local/cuda-11.2/lib64/
+  cp cudnn-linux-x86_64-8.8.0.121_cuda11-archive/include/* /usr/local/cuda-11.2/include/
+查看cudnn信息
+  cat /usr/local/cuda-11.2/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+安装PaddlePaddle(2.6.0)
+  proxychains python -m pip install paddlepaddle-gpu==2.6.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
+安装依赖
+  proxychains  pip install -r requirements.txt
+定义外部算子
+  cd ppdet/ext_op
+  python setup.py install
+缺失库
+  proxychains  pip  install  imgaug
+
+  

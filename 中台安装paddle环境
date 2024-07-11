@@ -38,6 +38,7 @@ nano proxychain.conf 改自己的ip保存即可联网
   export PATH=$PATH:/usr/local/cuda/bin  
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64  
   export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/cuda/lib64
+  source ~/.bashrc
   nvcc -V查看是否成功安装
   Ubuntu20.04系统会默认地将CUDA的NVIDIA GPU计算工具包安装到/usr/local/文件夹下面，可以看到该文件夹下多了两个文件夹cuda和cuda-11.0。
 安装cudnn 
@@ -50,7 +51,7 @@ nano proxychain.conf 改自己的ip保存即可联网
 查看cudnn信息
   cat /usr/local/cuda-11.0/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 安装PaddlePaddle
-  proxychains python3 -m pip install paddlepaddle-gpu==2.6.1.post112 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+  proxychains python3 -m pip install paddlepaddle-gpu==2.6.0.post112 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
 安装依赖
   proxychains  pip install -r requirements.txt
 定义外部算子

@@ -1,0 +1,8 @@
+一、管理员通过ssh访问集群的管理节点，进入root账户:
+   1.ssh sztg-ai@10.2.65.36
+   密码：linux123
+   Unable to connect to the server: dial tcp 10.10.10.11:6443: i/o timeout（权限问题）
+   sudo su
+   kubectl get pod -A -owide
+   kubectl describe pod lx-0 -n user02（查看自己的环境ID）
+   容器id：Container ID:   docker://id是7e44bb5a56742cb05128cc8d518a9442b5c3584d492ae6fdc72b15965869c261
